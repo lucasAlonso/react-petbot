@@ -1,0 +1,31 @@
+.home-dogbot-container {
+    width: 100%;
+    height: 100vh;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.home-dogbot-content {
+    width: 85%;
+    height: 100%;
+    position: absolute;
+    flex-direction: column;
+    margin: auto;
+}
+
+.home-dogbot-greeting {
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: #f7f4f8;
+    font-family: 'Quicksand';
+}
+
+.home-dogbot-greeting label {
+    margin-bottom: 10px;
+}
