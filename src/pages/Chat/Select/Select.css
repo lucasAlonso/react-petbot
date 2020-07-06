@@ -6,7 +6,7 @@
 .selector-content {
     width: 80%;
     height: fit-content;
-    background-color: teal;
+    background-color: #e08b97;
     border-radius: 5px;
     box-sizing: border-box;
     display: flex;
@@ -15,7 +15,7 @@
 }
 
 .selector-options label {
-    background-color: rgb(0, 100, 100);
+    background-color: #e46778;
     width: 90%;
     box-sizing: border-box;
     border-radius: 5px;

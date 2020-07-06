@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import './Chat.css';
 import DogItem from './DogItem/DogItem.jsx';
 import UserItem from './UserItem/UserItem.jsx';
@@ -41,6 +41,7 @@ const Chat = () => {
             setMsg({ ...msg, msg: '' });
             setTimeout(() => setOpenSelect(true), 600);
         }
+        scrollToBottom();
     }, [chat]);
 
     function getMeMessage(value) {
@@ -72,18 +73,28 @@ const Chat = () => {
                 result = doing[Math.floor(Math.random() * doing.length)];
                 if (result) {
                     setInteractions([...interactions, result.msg]);
+                    scrollToBottom();
                 }
                 break;
             case 'about':
                 result = aboutMe[Math.floor(Math.random() * aboutMe.length)];
                 if (result) {
                     setInteractions([...interactions, result.msg]);
+                    scrollToBottom();
                 }
                 break;
             default:
                 console.log('No hay valores');
         }
     }
+
+    const messagesEndRef = useRef(null);
+    const scrollToBottom = () => {
+        setTimeout(() => {
+            messagesEndRef.current.scrollIntoView({ behavior: 'smooth' });
+        }, 500);
+    };
+
     return (
         <div className='chatbox-chat-container'>
             <div className='chatbot-chat-content'>
@@ -116,6 +127,7 @@ const Chat = () => {
                                     </Fade>
                                 </>
                             ))}
+                        <div ref={messagesEndRef} />
                     </div>
                     <div className='chatbot-chat-container-input'>
                         <InputChat chat={chat} msg={msg} getMeMessage={getMeMessage} sendMessage={sendMessage} />
